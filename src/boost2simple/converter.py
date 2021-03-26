@@ -21,8 +21,6 @@ import pathlib
 from notes.boostnote import BoostNote
 from notes.simplenote import SimpleNote
 
-cwd = os.getcwd()
-
 description = f"{os.path.basename(__file__)} takes one or more " \
               f"BoostNote collection exports (JSON format) \n" \
               f"and converts them to a single, " \
@@ -83,6 +81,21 @@ def sanitize_dir_path(path: pathlib.Path) -> pathlib.Path:
         exit()
 
 
+def convert(boost_note_dir,
+            simple_note_dir,
+            markdown=True,
+            title=True) -> int:
+    boost_notes = BoostNote.Collection.from_path(boost_note_dir).notes
+    print(f"{len(boost_notes)} BoostNotes found.")
+    simple_notes = SimpleNote.Collection.from_boost_notes(boost_notes,
+                                                          markdown=markdown,
+                                                          title=title)
+    simple_notes.export_zip(target_dir=simple_note_dir)
+    count = (len(simple_notes.active_notes) + len(simple_notes.trashed_notes))
+    print(f"Successfully converted and zipped {count} notes!")
+    return 0
+
+
 if __name__ == "__main__":
     args = get_parser().parse_args()
 
@@ -91,14 +104,4 @@ if __name__ == "__main__":
     markdown = vars(args).get("markdown", True)
     title = vars(args).get("title", True)
 
-    boost_notes = BoostNote.Collection.from_path(boost_note_dir).notes
-    print(f"{len(boost_notes)} BoostNotes found.")
-
-    simple_notes = SimpleNote.Collection.from_boost_notes(boost_notes,
-                                                          markdown=markdown,
-                                                          title=title)
-
-    simple_notes.export_zip(target_dir=simple_note_dir)
-
-    count = (len(simple_notes.active_notes) + len(simple_notes.trashed_notes))
-    print(f"Successfully converted and zipped {count} notes!")
+    convert(boost_note_dir, simple_note_dir, markdown, title)
