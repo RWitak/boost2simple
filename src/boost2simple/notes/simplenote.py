@@ -23,8 +23,14 @@ import zipfile
 from io import BytesIO
 from typing import Union
 
-from boost2simple import util
-from boost2simple.notes.boostnote import BoostNote
+try:
+    from boost2simple import util
+    from boost2simple.notes.boostnote import BoostNote
+except ImportError:
+    import sys
+    sys.path.append(sys.path[0] + '/..')
+    from boost2simple import util
+    from boost2simple.notes.boostnote import BoostNote
 
 
 class SimpleNote:
@@ -102,8 +108,9 @@ class SimpleNote:
         return safe_title + ".txt"
 
     class Collection:
-        active_notes: list[SimpleNote] = []
-        trashed_notes: list[SimpleNote] = []
+        def __init__(self):
+            self.active_notes: list[SimpleNote] = []
+            self.trashed_notes: list[SimpleNote] = []
 
         def _add_note(self, note: SimpleNote):
             if note.deleted:
@@ -117,7 +124,7 @@ class SimpleNote:
                              markdown: bool = True,
                              title: bool = True) -> __class__:
 
-            snc = cls.__new__(cls)
+            snc = cls()
 
             for note in boost_notes:
                 snc._add_note(
@@ -168,7 +175,7 @@ class SimpleNote:
             return archive
 
         def export_zip(self,
-                       filename: str = "export.zip",
+                       filename: str = "notes.zip",
                        target_dir: Union[int,
                                          str,
                                          bytes,

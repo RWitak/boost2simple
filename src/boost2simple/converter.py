@@ -81,27 +81,43 @@ def sanitize_dir_path(path: pathlib.Path) -> pathlib.Path:
         exit()
 
 
-def convert(boost_note_dir,
-            simple_note_dir,
-            markdown=True,
-            title=True) -> int:
-    boost_notes = BoostNote.Collection.from_path(boost_note_dir).notes
-    print(f"{len(boost_notes)} BoostNotes found.")
-    simple_notes = SimpleNote.Collection.from_boost_notes(boost_notes,
-                                                          markdown=markdown,
-                                                          title=title)
-    simple_notes.export_zip(target_dir=simple_note_dir)
-    count = (len(simple_notes.active_notes) + len(simple_notes.trashed_notes))
-    print(f"Successfully converted and zipped {count} notes!")
-    return 0
+class Converter:
+    def __init__(self,
+                 boost_note_dir,
+                 simple_note_dir,
+                 markdown=True,
+                 show_title=True):
+        self.boost_note_dir = boost_note_dir
+        self.simple_note_dir = simple_note_dir
+        self.markdown = markdown
+        self.title = show_title
+        self.status = "No BoostNotes could be converted."
+
+    def convert(self) -> int:
+        boost_notes = BoostNote.Collection.from_path(self.boost_note_dir).notes
+        print(f"{len(boost_notes)} BoostNotes found.")
+        simple_notes = SimpleNote.Collection.from_boost_notes(boost_notes,
+                                                              markdown=self.markdown,
+                                                              title=self.title)
+        simple_notes.export_zip(target_dir=self.simple_note_dir)
+        count = (len(simple_notes.active_notes) + len(simple_notes.trashed_notes))
+        if count > 0:
+            self.status = f"Successfully converted and zipped {count} of {len(boost_notes)} notes!"
+            return 0
+        else:
+            return 1
+
+
+def main():
+    args = get_parser().parse_args()
+    simple_dir = sanitize_dir_path(vars(args).get("simple_note_dir")[0])
+    boost_dir = sanitize_dir_path(vars(args).get("boost_note_dir")[0])
+    md = vars(args).get("markdown", True)
+    title = vars(args).get("title", True)
+    converter = Converter(boost_dir, simple_dir, md, title)
+    converter.convert()
+    print(converter.status)
 
 
 if __name__ == "__main__":
-    args = get_parser().parse_args()
-
-    simple_note_dir = sanitize_dir_path(vars(args).get("simple_note_dir")[0])
-    boost_note_dir = sanitize_dir_path(vars(args).get("boost_note_dir")[0])
-    markdown = vars(args).get("markdown", True)
-    title = vars(args).get("title", True)
-
-    convert(boost_note_dir, simple_note_dir, markdown, title)
+    main()

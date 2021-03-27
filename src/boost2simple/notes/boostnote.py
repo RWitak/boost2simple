@@ -21,7 +21,13 @@ import json
 import os
 
 import scandir
-from boost2simple import util
+
+try:
+    from boost2simple import util
+except ImportError:
+    import sys
+    sys.path.append(sys.path[0] + '/..')
+    from boost2simple import util
 
 
 class BoostNote:
@@ -88,7 +94,7 @@ class BoostNote:
                                                     else None))
                     if boost_note:
                         notes.add(boost_note)
-                except FileNotFoundError:
+                except (FileNotFoundError, AttributeError):
                     pass
             elif path.is_dir():
                 for entry in scandir.scandir_python(path.path):
