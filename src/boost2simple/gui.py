@@ -58,7 +58,7 @@ class Application(tk.Frame):
     def convert(self):
         conv = converter.Converter(self.input_dir.get(), self.output_dir.get(),
                                    self.markdown.get(), self.title.get())
-        exit_code = conv.convert()
+        exit_code = conv.convert_and_export()
         if exit_code == 0:
             self.listener.trigger_success(message=conv.status)
         else:
@@ -211,8 +211,13 @@ def visit_repo():
     webbrowser.open(repo_url)
 
 
-windll.shcore.SetProcessDpiAwareness(1)
-root = tk.Tk()
-root.resizable(False, False)
-app = Application(master=root)
-app.mainloop()
+def main():
+    windll.shcore.SetProcessDpiAwareness(1)
+    root = tk.Tk()
+    root.resizable(False, False)
+    app = Application(master=root)
+    app.mainloop()
+
+
+if __name__ == '__main__':
+    main()

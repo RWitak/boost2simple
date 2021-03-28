@@ -78,14 +78,6 @@ def get_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def sanitize_dir_path(path: pathlib.Path) -> pathlib.Path:
-    if os.path.isdir(path):
-        return path
-    else:
-        print(str(path) + " is not a valid directory name.")
-        exit()
-
-
 def main():
     args = get_parser().parse_args()
     simple_dir = sanitize_dir_path(vars(args).get("simple_note_dir")[0])
@@ -93,8 +85,16 @@ def main():
     md = vars(args).get("markdown", True)
     title = vars(args).get("title", True)
     converter = Converter(boost_dir, simple_dir, md, title)
-    converter.convert()
+    converter.convert_and_export()
     print(converter.status)
+
+
+def sanitize_dir_path(path: pathlib.Path) -> pathlib.Path:
+    if os.path.isdir(path):
+        return path
+    else:
+        print(str(path) + " is not a valid directory name.")
+        exit()
 
 
 if __name__ == "__main__":
