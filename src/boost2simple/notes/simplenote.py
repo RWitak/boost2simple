@@ -72,10 +72,7 @@ class SimpleNote:
                          markdown: bool = True,
                          title=True) -> SimpleNote:
         content = cls._get_content_from_boost_note(boost_note, markdown, title)
-        tags = (boost_note.tags
-                + ([boost_note.collection_pathname]
-                   if boost_note.collection_pathname
-                   else []))
+        tags = SimpleNote.get_simple_tags_for_boost(boost_note)
 
         return SimpleNote(
             content=content,
@@ -89,6 +86,16 @@ class SimpleNote:
             shared=False,
             deleted=boost_note.deleted,
             title=boost_note.title)
+
+    @classmethod
+    def get_simple_tags_for_boost(cls, boost_note):
+        tags = boost_note.tags
+        if boost_note.collection_pathname:
+            full_pathname: str = boost_note.collection_pathname
+            if boost_note.folder_pathname:
+                full_pathname += boost_note.folder_pathname
+            tags.append(full_pathname.replace(" ", "_"))
+        return tags
 
     @staticmethod
     def _get_content_from_boost_note(boost_note, markdown, title):
