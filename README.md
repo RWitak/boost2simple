@@ -41,10 +41,15 @@ as well as setting _SimpleNote_'s ```markdown``` tag to ```false``` for all conv
 ## Requirements
 
 * __BoostNote__'s desktop app (or a valid JSON export - **NOT JUST SINGLE FILES** - see below)
-* modern _Windows_ operating system (though the Python version _might_ work under Linux too)
+* modern _Windows_ operating system (though the Python version _might_ work under Linux too).
 * being comfortable using **either**:
-  - an executable file from an unknown source (= me) to get a graphical interface, or
-  - Python 3.9+ 
+  - an executable file from an unknown source (= me) to get a graphical interface, or  
+  - Python 3.9+   
+
+> If you are having troubles or get some ```DLL```-related error,
+it is most likely due to an old version of Windows.
+Please consider updating Windows accordingly.
+
 
 ## How To Use
 
@@ -120,7 +125,7 @@ your _BoostNote_ collection(s) properly. To do this:
 
 #### The Easy Way
 
-1. Download ```boost2simple.exe``` right here.
+1. Download ```boost2simple.exe``` right [here](https://github.com/RWitak/boost2simple/raw/master/boost2simple.zip).
 2. Run it.
 3. I tried to make the interface self-explanatory and simple. 
    If you're still confused, please refer to the **What It All Means** section below! 
