@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+src/boost2simple/__init__.py
+src/boost2simple/cli.py
+src/boost2simple/converter.py
+src/boost2simple/gui.py
+src/boost2simple/util.py
+src/boost2simple.egg-info/PKG-INFO
+src/boost2simple.egg-info/SOURCES.txt
+src/boost2simple.egg-info/dependency_links.txt
+src/boost2simple.egg-info/top_level.txt
+src/boost2simple/notes/__init__.py
+src/boost2simple/notes/boostnote.py
+src/boost2simple/notes/simplenote.py
