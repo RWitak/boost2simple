@@ -122,13 +122,18 @@ your _BoostNote_ collection(s) properly. To do this:
 
 1. Download ```boost2simple.exe``` right here.
 2. Run it.
+3. I tried to make the interface self-explanatory and simple. 
+   If you're still confused, please refer to the **What It All Means** section below! 
 
 #### The Pythonic Way
 
 1. Get boost2simple the way you usually do, either here or via ```pip install```.
 2. Run ```gui.py``` or ```cli.py``` depending on your preferred interface. 
    They have the exact same functionality.
-3. If you have chosen the CLI, the extensive ```--help``` will guide you through the process.
+3. If you have chosen the CLI, the extensive ```--help``` will guide you through the process.  
+   Short version:
+   
+         cli.py [-h] [--markdown | --no-markdown] [--title | --no-title] [--from ORIGIN_DIR] [--to TARGET_DIR]
         
 ### Importing Your Notes With _SimpleNote_
 
@@ -231,3 +236,20 @@ This, too, is caused by the _FolderPicker_.
 I might look into alternatives for that since it causes some quirks,
 but at the moment simply rest assured that your files are there. 
 It just looks for folders and nothing else, since you can only pick those anyway.
+
+## License & Copyright
+
+> This program is free software: you can redistribute it and/or modify
+> it under the terms of the GNU General Public License as published by
+> the Free Software Foundation, either version 3 of the License, or
+> (at your option) any later version.
+> 
+> This program is distributed in the hope that it will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> GNU General Public License for more details.
+> You should have received a copy of the GNU General Public License
+> along with this program.  If not, see <https://www.gnu.org/licenses/>.
+> ---
+> **_boost2simple - the BoostNote->SimpleNote converter_**
+> _Copyright (c) 2021, Rafael Witak._  
