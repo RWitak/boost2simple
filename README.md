@@ -1,6 +1,6 @@
 # boost2simple
 
-This tool was created to make it easier for former **BoostNote** users to switch to **SimpleNote**. 
+This free, open-source tool was created to make it easier for former **BoostNote** users to switch to **SimpleNote**. 
 It takes one or more _BoostNote_ collection exports (in _JSON format_, see below how to get it)
 and converts them to a single, _SimpleNote_-style export zip-file 
 which can then easily be imported with _SimpleNote_. 
@@ -123,11 +123,17 @@ your _BoostNote_ collection(s) properly. To do this:
 
 ### Setting Up _**boost2simple**_ 
 
-#### The Easy Way
+#### The Easy Way - no install necessary!
 
-1. Download ```boost2simple.exe``` right [here](https://github.com/RWitak/boost2simple/raw/master/boost2simple.zip).
-2. Run it.
-3. I tried to make the interface self-explanatory and simple. 
+1. Download ```boost2simple.zip``` right [here](https://github.com/RWitak/boost2simple/raw/master/boost2simple.zip).
+   Your browser might (...ahem, should!) warn you about downloading weird stuff from the internet.
+   Please ignore it for now and download anyway.
+2. _(recommended)_ Be a responsible person and scan the downloaded zip-file for viruses.
+3. Extract the archive to wherever you find its contents later.
+4. _(recommended)_ Scan again for good measure.
+5. Run the extracted executable file (```boost2simple.exe```), 
+   the interface should pop right up. 
+6. I tried to make __*boost2simple*__ self-explanatory. 
    If you're still confused, please refer to the **What It All Means** section below! 
 
 #### The Pythonic Way
@@ -199,7 +205,7 @@ Feel free to adopt that system for future notes by adding the according tags to 
 
 #### File Extensions
 
-In this guide, all **file**s have **extensions** like ```.txt```, ```.json``` or ```.zip```.
+In this guide, all **file**s have **extensions** like ```.exe```, ```.txt```, ```.json``` or ```.zip```.
 If you don't see this extension, its visibility is deactivated in your file explorer.
 This is fine, and you can simply ignore the file extensions in this guide!
 
