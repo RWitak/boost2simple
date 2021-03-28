@@ -68,11 +68,11 @@ your _BoostNote_ collection(s) properly. To do this:
 3. Now you can export the selected "workspace" to a folder on your computer.
   The resulting export will look like this:
         
-        Export folder
-        │   boostnote.json
-        │   
-        ├───attachments
-        └───notes
+        Export folder  
+        │   boostnote.json  
+        │     
+        ├───attachments  
+        └───notes  
 4. If you are attached to your attachments, this is the time to get them out of here. 
    You won't be having them in _SimpleNote_.
 5. For converting, we only need the content of ```notes```, which are JSON files holding your notes.
@@ -90,17 +90,17 @@ your _BoostNote_ collection(s) properly. To do this:
    If you were to call that folder ```BoostNotes``` (for sentimental reasons), 
    the structure we are striving for would look something like this:
 
-        BoostNotes
-        ├───CollectionA
-        │   │   abc.json
-        │   │   efg.json
-        │   ...
-        │
-        ├───CollectionB
-        │   │   zyx.json
-        │   │   wvu.json
-        │   ...
-        ...
+        BoostNotes  
+        ├───CollectionA  
+        │   │   abc.json  
+        │   │   efg.json  
+        │   ...  
+        │  
+        ├───CollectionB  
+        │   │   zyx.json  
+        │   │   wvu.json  
+        │   ...  
+        ...  
    In this example, you would pick ```BoostNotes``` as import folder,
    and your automatically created new tags would be called  ```CollectionA``` and ```CollectionB```. 
    All previous **sub-folders** you had before will be added to that automatically, 
@@ -138,16 +138,16 @@ original _SimpleNote_ archives do! Now it's time to transfer your notes.
 1. Navigate to your chosen destination folder.
 2. Extract the ```notes.zip``` file to reveal the following structure:
 
-        notes
-        │   abc.txt
-        │   def.txt
-        │   ...
-        │   zyx.txt
-        │
-        ├───source
-        │   │   notes.json      <--- the import file for SimpleNote!
-        │
-        └───trash
+        notes  
+        │   abc.txt  
+        │   def.txt  
+        │   ...  
+        │   zyx.txt  
+        │  
+        ├───source  
+        │   │   notes.json      <--- the import file for SimpleNote!  
+        │  
+        └───trash  
    > If you want, you can now make a backup of this archive (in zipped or unzipped form).  
    > This is also an interesting folder to browse through 
    > if you only need some note's contents (and nothing else) in plain text...
@@ -170,18 +170,18 @@ To really profit from **_boost2simple_**'s tag-simulated folder structure in _Si
 you should turn on ```Settings -> Display -> Tags -> Sort Alphabetically```! 
 Now you can navigate your files by tag in the main menu, like so:
  
-       Tags
-
-       /Collection1/
-       /Collection1/SubFolder1
-       /Collection1/SubFolder2
-       /Collection1/SubFolder2/SubSubFolder
-       /Collection2/
-       /Collection3/
-       ...
-       RegularTag1
-       RegularTag2 
-       ...
+       Tags  
+  
+       /Collection1/  
+       /Collection1/SubFolder1  
+       /Collection1/SubFolder2  
+       /Collection1/SubFolder2/SubSubFolder  
+       /Collection2/  
+       /Collection3/  
+       ...  
+       RegularTag1  
+       RegularTag2   
+       ...  
 
 Feel free to adopt that system for future notes by adding the according tags to your notes!
 
