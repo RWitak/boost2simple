@@ -46,7 +46,7 @@ as well as setting _SimpleNote_'s ```markdown``` tag to ```false``` for all conv
   - an executable file from an unknown source (= me) to get a graphical interface, or  
   - Python 3.9+   
 
-> If you are having troubles or get some ```DLL```-related error,
+> If you are having troubles with the exe or get some ```DLL```-related error,
 it is most likely due to an old version of Windows.
 Please consider updating Windows accordingly.
 
@@ -138,10 +138,12 @@ your _BoostNote_ collection(s) properly. To do this:
 
 #### The Pythonic Way
 
-1. Get boost2simple the way you usually do, either here or via ```pip install```.
-2. Run ```gui.py``` or ```cli.py``` depending on your preferred interface. 
+1. Get boost2simple the way you usually do, either here or via ```pip install boost2simple```. 
+2. Please also do ```pip install scandir``` if you don't have it already. 
+   I will include it right away in an upcoming update.
+3. Run ```gui.py``` or ```cli.py``` depending on your preferred interface. 
    They have the exact same functionality.
-3. If you have chosen the CLI, the extensive ```--help``` will guide you through the process.  
+4. If you have chosen the CLI, the extensive ```--help``` will guide you through the process.  
    Short version:
    
          cli.py [-h] [--markdown | --no-markdown] [--title | --no-title] [--from ORIGIN_DIR] [--to TARGET_DIR]

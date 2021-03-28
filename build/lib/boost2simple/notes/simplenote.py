@@ -18,16 +18,20 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 import uuid
 import zipfile
 from io import BytesIO
 from typing import Union
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
+sys.path.insert(0, parent_dir_path)
+
 try:
     from boost2simple import util
     from boost2simple.notes.boostnote import BoostNote
-except ImportError:
-    import sys
+except (ImportError, ModuleNotFoundError):
     sys.path.append(sys.path[0] + '/..')
     from boost2simple import util
     from boost2simple.notes.boostnote import BoostNote
