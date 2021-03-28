@@ -192,6 +192,11 @@ class SimpleNote:
             archive: BytesIO = self._to_zip_bytestream()
             cwd = os.getcwd()
             os.chdir(target_dir)
+            if os.path.exists(filename):
+                i = 1
+                while os.path.exists(f"({i}) {filename}"):
+                    i += 1
+                filename = f"({i}) {filename}"
             with open(filename, "wb") as f:
                 f.write(archive.getbuffer().tobytes())
             os.chdir(cwd)
