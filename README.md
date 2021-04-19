@@ -265,6 +265,8 @@ It just looks for folders and nothing else, since you can only pick those anyway
 > GNU General Public License for more details.
 > You should have received a copy of the GNU General Public License
 > along with this program.  If not, see <https://www.gnu.org/licenses/>.
+> 
 > ---
+> 
 > **_boost2simple - the BoostNote->SimpleNote converter_**
 > _Copyright (c) 2021, Rafael Witak._  
