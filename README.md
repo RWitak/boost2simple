@@ -50,7 +50,8 @@ as well as setting _SimpleNote_'s ```markdown``` tag to ```false``` for all conv
 it is most likely due to an old version of Windows.
 Please consider updating Windows accordingly.
 
-![Graphical User Interface](https://github.com/RWitak/boost2simple/blob/master/res/gui_screenshot.png?raw=true) ![Command Line Interface](https://github.com/RWitak/boost2simple/blob/master/res/cli_screenshot.png?raw=true)
+![Graphical User Interface](https://github.com/RWitak/boost2simple/blob/master/res/gui_screenshot.png?raw=true)
+![Command Line Interface](https://github.com/RWitak/boost2simple/blob/master/res/cli_screenshot.png?raw=true)
 _Which of these two options are you more comfortable with?_
 
 ## How To Use

@@ -18,23 +18,12 @@ from __future__ import annotations
 
 import json
 import os
-import sys
 import uuid
 import zipfile
 from io import BytesIO
-from typing import Union
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
-sys.path.insert(0, parent_dir_path)
-
-try:
-    from boost2simple import util
-    from boost2simple.notes.boostnote import BoostNote
-except (ImportError, ModuleNotFoundError):
-    sys.path.append(sys.path[0] + '/..')
-    from boost2simple import util
-    from boost2simple.notes.boostnote import BoostNote
+from boost2simple import util
+from boost2simple.notes.boostnote import BoostNote
 
 
 class SimpleNote:
@@ -187,11 +176,7 @@ class SimpleNote:
 
         def export_zip(self,
                        filename: str = "notes.zip",
-                       target_dir: Union[int,
-                                         str,
-                                         bytes,
-                                         os.PathLike
-                                         ] = ""):
+                       target_dir = ""):
 
             archive: BytesIO = self._to_zip_bytestream()
             cwd = os.getcwd()

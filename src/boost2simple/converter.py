@@ -14,20 +14,8 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import os
-import sys
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
-parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
-sys.path.insert(0, parent_dir_path)
-
-try:
-    from notes.boostnote import BoostNote
-    from notes.simplenote import SimpleNote
-except (ImportError, ModuleNotFoundError):
-    sys.path.append(sys.path[0] + '/..')
-    from notes.boostnote import BoostNote
-    from notes.simplenote import SimpleNote
+from boost2simple.notes.boostnote import BoostNote
+from boost2simple.notes.simplenote import SimpleNote
 
 
 class Converter:

@@ -15,23 +15,13 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
-import sys
 import tkinter as tk
 import webbrowser
 from ctypes import windll
 from tkinter.filedialog import askdirectory
 from tkinter.font import Font
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
-sys.path.insert(0, parent_dir_path)
-
-try:
-    from boost2simple import converter
-except (ImportError, ModuleNotFoundError):
-    sys.path.append(sys.path[0] + '/..')
-    from boost2simple import converter
-
+from boost2simple import converter
 
 primary_light = "#F7F7FF"
 primary_dark = "#545E75"

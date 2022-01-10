@@ -13,22 +13,11 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 import argparse
 import os
 import pathlib
-import sys
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
-sys.path.insert(0, parent_dir_path)
-
-try:
-    from boost2simple.converter import Converter
-except (ImportError, ModuleNotFoundError):
-    sys.path.append(sys.path[0] + '/..')
-    from boost2simple.converter import Converter
-
+from boost2simple.converter import Converter
 
 description = f"{os.path.basename(__file__)} takes one or more " \
               f"BoostNote collection exports (JSON format) \n" \
