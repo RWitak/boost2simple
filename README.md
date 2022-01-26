@@ -142,11 +142,9 @@ your _BoostNote_ collection(s) properly. To do this:
 #### The Pythonic Way
 
 1. Get boost2simple the way you usually do, either here or via ```pip install boost2simple```. 
-2. Please also do ```pip install scandir``` if you don't have it already. 
-   I will include it right away in an upcoming update.
-3. Run ```gui.py``` or ```cli.py``` depending on your preferred interface. 
+2. Launch ```boost2simple.gui``` or ```boost2simple.cli``` depending on your preferred interface. 
    They have the exact same functionality.
-4. If you have chosen the CLI, the extensive ```--help``` will guide you through the process.  
+3. If you have chosen the CLI, the extensive ```--help``` will guide you through the process.  
    Short version:
    
          cli.py [-h] [--markdown | --no-markdown] [--title | --no-title] [--from ORIGIN_DIR] [--to TARGET_DIR]
